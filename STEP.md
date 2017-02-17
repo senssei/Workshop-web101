@@ -1,58 +1,22 @@
-# Add some JavaScript magic
+# JavaScript strikes back
 
-This part is tricky. Don't panic.
+This time we will use JS to model our application data.
 
-There is a loot to learn. Be persistent and open-minded.
+## 1. Data store
 
-## 1. Use Angular binding to evaluate sum of 2+2
-
-In file `src\app\app.component.html` at the end just add `{{2+2}}` at the end.
-
-```html
-<h1>My todo app</h1>
-<div>
-  <div>
-    <h2>Add new</h2>
-    <div>
-      <input type="text" name="todo" placeholder="Add your task here">
-      <input type="button" value="Add">
-      </div>
-  </div>
-  <div>
-    <h2>List</h2>
-    <ul>
-      <li>task 1</li>
-      <li>task 2</li>
-      <li>task 3</li>
-      <li>task 4</li>
-    </ul>
-  </div>
-</div>
-{{ 2+2 }}
-```
-
-
-## 2. Open TypeScript file
-
-Open file `src\app\app.component.ts` and add new variable to `class` AppComponent
+Let's add `Array` of `string` called `task` into our `AppComponent` class.
 
 ```js
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
 export class AppComponent {
-  title = 'app works!';
-  sample = 'hello world!';
+   tasks = ['task 1', 'task 2', 'task 3', 'task 4', 'task 5'];
 }
 ```
 
-## 3. Use Angular binding to use this in html
+This will be data store for our tasks.
 
-In file `src\app\app.component.html` at the end just add 
+## 2. HTML binding
+
+Not we need to change html to read data from `AppComponent`.
 
 ```html
 <h1>My todo app</h1>
@@ -62,34 +26,27 @@ In file `src\app\app.component.html` at the end just add
     <div>
       <input type="text" name="todo" placeholder="Add your task here">
       <input type="button" value="Add">
-      </div>
+    </div>
   </div>
   <div>
     <h2>List</h2>
     <ul>
-      <li>task 1</li>
-      <li>task 2</li>
-      <li>task 3</li>
-      <li>task 4</li>
+      <li *ngFor="let task of tasks; let i = index">{{task}}</li>
     </ul>
   </div>
 </div>
-{{ 2+2 }}
-{{sample}}
 ```
 
-## 4. Let's play with that
+We need to clean up some of our code from last time. Then on single `<li>` tag we
+add *Angular* `*ngFor` *directive*. This is responsible for create elements based 
+on our code.
 
-Clean up both bindings from html.
+In this case it creates `<li>` elements, that are based on our `Array`.
 
-```html
-{{ 2+2 }}
-{{sample}}
-```
+## 3. Let's play
 
-And in TypeScript add `2+2` instead `'hello world!'` in sample variable.
+We can change `tasks` *Array* by adding new task.
 
 ```js
-sample = 2+2;
+tasks = ['task 1', 'task 2', 'task 3', 'task 4', 'task 5', 'task 6', 'task 7'];
 ```
-
