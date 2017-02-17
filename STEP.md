@@ -1,65 +1,95 @@
-# Add some structure
+# Add some JavaScript magic
 
-In this exercise we will add basic skeleton to our page.
+This part is tricky. Don't panic.
 
-## 1. Open console
+There is a loot to learn. Be persistent and open-minded.
 
-View -> Integrated terminal or CTRL + ~
+## 1. Use Angular binding to evaluate sum of 2+2
 
-## 2. Start app
-
-```bash
-npm start
-```
-
-## 3. Open page
-
-Open browser and navigate to
-
-http://localhost:4200/
-
-## 4. Open html file
-
-`src\app\app.component.html`
-
-## 5. Remove all content
-
-## 6. Add single `h1` tag
+In file `src\app\app.component.html` at the end just add `{{2+2}}` at the end.
 
 ```html
-<h1>Todo</h1>
+<h1>My todo app</h1>
+<div>
+  <div>
+    <h2>Add new</h2>
+    <div>
+      <input type="text" name="todo" placeholder="Add your task here">
+      <input type="button" value="Add">
+      </div>
+  </div>
+  <div>
+    <h2>List</h2>
+    <ul>
+      <li>task 1</li>
+      <li>task 2</li>
+      <li>task 3</li>
+      <li>task 4</li>
+    </ul>
+  </div>
+</div>
+{{ 2+2 }}
 ```
 
-## 7. Add single `div` tag below with some text inside
 
-```html
-<h1>Todo</h1>
-<div>List of todos</div>
-```
+## 2. Open TypeScript file
 
-## 8. Add debug css
+Open file `src\app\app.component.ts` and add new variable to `class` AppComponent
 
-In next tab open `src\app\app.component.css`
+```js
+import { Component } from '@angular/core';
 
-```css
-* {
-  border: 1px solid crimson;
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app works!';
+  sample = 'hello world!';
 }
 ```
 
-## 9. Add debug css
+## 3. Use Angular binding to use this in html
 
-Add another `div` inside previous one.
+In file `src\app\app.component.html` at the end just add 
 
 ```html
-<h1>Todo</h1>
+<h1>My todo app</h1>
 <div>
-  <div>Add new todo</div>
-  List of todos
+  <div>
+    <h2>Add new</h2>
+    <div>
+      <input type="text" name="todo" placeholder="Add your task here">
+      <input type="button" value="Add">
+      </div>
+  </div>
+  <div>
+    <h2>List</h2>
+    <ul>
+      <li>task 1</li>
+      <li>task 2</li>
+      <li>task 3</li>
+      <li>task 4</li>
+    </ul>
+  </div>
 </div>
+{{ 2+2 }}
+{{sample}}
 ```
 
-## 10. Let's build scaffold for todo-app
+## 4. Let's play with that
 
-:) just play
+Clean up both bindings from html.
+
+```html
+{{ 2+2 }}
+{{sample}}
+```
+
+And in TypeScript add `2+2` instead `'hello world!'` in sample variable.
+
+```js
+sample = 2+2;
+```
 
