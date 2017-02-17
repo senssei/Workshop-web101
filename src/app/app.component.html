@@ -10,13 +10,7 @@
   <div>
     <h2>List</h2>
     <ul>
-      <li>task 1</li>
-      <li>task 2</li>
-      <li>task 3</li>
-      <li>task 4</li>
+      <li *ngFor="let task of tasks; let i = index">{{task}}</li>
     </ul>
   </div>
 </div>
-{{2+2}}
-{{sample}}
-{{sample2}}
